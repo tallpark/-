@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const commentSchema = new mongoose.Schema({
   postId: {
-    type: Number,
+    type: String,
     required: true,
     unique: true
   },
@@ -13,7 +13,12 @@ const commentSchema = new mongoose.Schema({
   comment: {
     type: String,
     required: true,
+  },
+  password: {
+    type: String,
+    require: true,
   }
 });
+commentSchema.set('timestamps', true);
 
-module.exports = mongoose.model("comment", commentSchema);
+module.exports = mongoose.model("Comment", commentSchema);
